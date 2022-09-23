@@ -1,0 +1,69 @@
+<nav class="navbar bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30"
+                height="24">
+        </a>
+        <a class="d-block d-md-none"><i class='bx bx-menu'></i></a>
+    </div>
+</nav>
+<div class="">
+    <div class="d-flex min-vh-100">
+        <div class="col-lg-2 col-md-3 d-none d-sm-none d-md-block bg-dark">
+            <div class="btn-group-vertical d-flex">
+                <a routerLink="/" class="btn btn-dark rounded-0 text-start p-3">Dashboard</a>
+                <a routerLink="/list" class="btn btn-dark rounded-0 text-start p-3">List</a>
+                <a routerLink="/create" class="btn btn-dark rounded-0 text-start p-3">Create</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-9 col-lg-10">
+            <div class="container p-2">
+                <h3>Contact List:</h3>
+                <div *ngIf="this.users">
+                    <ul class="list-group">
+                        <li class="list-group-item hstack" *ngFor="let item of users">
+                            <span class="align-middle">
+                                <i class='bx bx-user'></i>
+                                {{ item.name }} / {{ item.phone }}
+                            </span>
+                            <div class="ms-auto  d-flex gap-3">
+                                <a routerLink="/view/{{ item.id }}" class="btn btn-sm btn-outline-warning">View</a>
+                                <div class="vr"></div>
+                                <a routerLink="/update/{{ item.id }}" class="btn btn-sm btn-outline-info">Update</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div *ngIf="!this.users">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <p class="placeholder-wave">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="placeholder-wave">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="placeholder-wave">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="placeholder-wave">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="placeholder-wave">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

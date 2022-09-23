@@ -1,0 +1,76 @@
+<nav class="navbar bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30"
+                height="24">
+        </a>
+        <a class="d-block d-md-none"><i class='bx bx-menu'></i></a>
+    </div>
+</nav>
+
+<div class="">
+    <div class="d-flex min-vh-100">
+        <div class="col-lg-2 col-md-3 d-none d-sm-none d-md-block bg-dark">
+            <div class="btn-group-vertical d-flex">
+                <a routerLink="/" class="btn btn-dark rounded-0 text-start p-3">Dashboard</a>
+                <a routerLink="/list" class="btn btn-dark rounded-0 text-start p-3">List</a>
+                <a routerLink="/create" class="btn btn-dark rounded-0 text-start p-3">Create</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-9 col-lg-10">
+            <div class="container p-2">
+                <h3>Create a New Contact:</h3>
+                <form class="d-grid gap-3" [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" name="name" formControlName="name"
+                            [ngClass]="{ 'is-invalid': submitted && form.controls.name.errors }">
+                        <div *ngIf="submitted && form.controls.name.errors" class="text-danger">
+                            <div *ngIf="form.controls.name.errors.required">This field is required.</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <div id="gender" class="d-flex gap-2">
+                            <input id="male" type="radio" value="male" name="gender" formControlName="gender"
+                                [ngClass]="{ 'is-invalid': submitted && form.controls.gender.errors }">
+                            <label for="male">Male</label>
+                            <input id="female" type="radio" value="female" name="gender" formControlName="gender"
+                                [ngClass]="{ 'is-invalid': submitted && form.controls.gender.errors }">
+                            <label for="female">Female</label>
+                        </div>
+                        <div *ngIf="submitted && form.controls.gender.errors" class="text-danger">
+                            <div *ngIf="form.controls.gender.errors.required">This field is required.</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="text" class="form-control" name="phone" formControlName="phone"
+                            [ngClass]="{ 'is-invalid': submitted && form.controls.phone.errors }">
+                        <div *ngIf="submitted && form.controls.phone.errors" class="text-danger">
+                            <div *ngIf="form.controls.phone.errors.required">This field is required.</div>
+                            <div *ngIf="form.controls.phone.errors.pattern">This field is must be a valid Phone Number.
+                            </div>
+                            <div *ngIf="form.controls.phone.errors.minLength">This field is must be a valid Phone
+                                Number.</div>
+                            <div *ngIf="form.controls.phone.errors.maxLength">This field is must be a valid Phone
+                                Number.</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" name="email" formControlName="email"
+                            [ngClass]="{ 'is-invalid': submitted && form.controls.email.errors }">
+                        <div *ngIf="submitted && form.controls.email.errors" class="text-danger">
+                            <div *ngIf="form.controls.email.errors.required">This field is required.</div>
+                            <div *ngIf="form.controls.email.errors.email">Email must be a valid email address.</div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary" [disabled]="submitted">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

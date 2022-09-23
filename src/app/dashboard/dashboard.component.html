@@ -1,0 +1,28 @@
+<nav class="navbar bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30"
+                height="24">
+        </a>
+        <a class="d-block d-md-none"><i class='bx bx-menu'></i></a>
+    </div>
+</nav>
+<div class="">
+    <div class="d-flex min-vh-100">
+        <div class="col-lg-2 col-md-3 d-none d-sm-none d-md-block bg-dark">
+            <div class="btn-group-vertical d-flex">
+                <a routerLink="/dashboard" class="btn btn-dark rounded-0 text-start p-3">Dashboard</a>
+                <a routerLink="/list" class="btn btn-dark rounded-0 text-start p-3">List</a>
+                <a routerLink="/create" class="btn btn-dark rounded-0 text-start p-3">Create</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-9 col-lg-10">
+            <div class="container p-2">
+                <div class="d-grid d-md-flex">
+                    <div class="col-6 m-auto"><canvas #pieChart id="pieChart" height="250"></canvas></div>
+                    <div class="col-6 m-auto"><canvas #barChart id="barChart" height="250"></canvas></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

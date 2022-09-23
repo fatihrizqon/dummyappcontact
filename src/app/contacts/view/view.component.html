@@ -1,0 +1,52 @@
+<nav class="navbar bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30"
+                height="24">
+        </a>
+        <a class="d-block d-md-none"><i class='bx bx-menu'></i></a>
+    </div>
+</nav>
+<div class="">
+    <div class="d-flex min-vh-100">
+        <div class="col-lg-2 col-md-3 d-none d-sm-none d-md-block bg-dark">
+            <div class="btn-group-vertical d-flex">
+                <a routerLink="/" class="btn btn-dark rounded-0 text-start p-3">Dashboard</a>
+                <a routerLink="/list" class="btn btn-dark rounded-0 text-start p-3">List</a>
+                <a routerLink="/create" class="btn btn-dark rounded-0 text-start p-3">Create</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-9 col-lg-10">
+            <div class="container p-2">
+                <div class=" card m-auto p-3" style="width: 18rem;" *ngIf="user">
+                    <img src="{{ user?.avatar }}" class="card-img-top rounded-circle img-fluid avatar m-auto"
+                        alt="{{ user?.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ user?.name }} </h5>
+                        <p class="card-text d-grid">
+                            <span>Gender: {{ user?.gender }}</span>
+                            <span>Phone: {{ user?.phone }}</span>
+                            <span>Email: {{ user?.email }}</span>
+                            <span>Created at {{ user?.created_at | date:'yyyy-MM-dd HH:mm' }}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="card m-auto p-3" style="width: 18rem;" *ngIf="!user">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Faenza-avatar-default-symbolic.svg/1200px-Faenza-avatar-default-symbolic.svg.png"
+                        class="card-img-top rounded-circle img-fluid avatar m-auto" alt="thumbnail">
+                    <div class="card-body">
+                        <h5 class="card-title placeholder-glow">
+                            <span class="placeholder col-6"></span>
+                        </h5>
+                        <p class="card-text d-grid gap-3">
+                            <span class="placeholder col-6"></span>
+                            <span class="placeholder col-8"></span>
+                            <span class="placeholder col-7"></span>
+                            <span class="placeholder col-9"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
